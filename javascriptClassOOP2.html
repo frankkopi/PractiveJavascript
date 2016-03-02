@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // create a class called rotationAnimation
+        function rotationAnimation(){
+            this.d = 0;
+            this.animate = function animate(el, direction){
+                var elem = document.getElementById(el);
+                var me = this;
+                if(direction == "ccw")
+                {
+                    this.d--;
+                }
+                else
+                {
+                    this.d++;
+                }
+                elem.style.WebkitTransform = "rotate(" + this.d + "deg)";
+                elem.style.MozTransform = "rotate(" + this.d + "deg)";
+                elem.style.msTransform = "rotate(" + this.d + "deg)";
+                elem.style.OTransform = "rotate(" + this.d + "deg)";
+                elem.style.transform = "rotate(" + this.d + "deg)";
+                if(this.d > 359){
+                    this.d = 1;
+                } else if (this.d < -359){
+                    this.d = -1;
+                }
+                setTimeout(function(){me.animate(el, direction);}, 50);
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <img id="img1" src="images/cog1.png" alt="pic1">
+    <img id="img2" src="images/cog1.png" alt="pic2">
+    <img id="img3" src="images/cog1.png" alt="pic3">
+    <script>
+        // create instances of the rotationAnimation class
+        var img1RotateObj = new rotationAnimation();
+        var img2RotateObj = new rotationAnimation();
+        var img3RotateObj = new rotationAnimation();
+        img1RotateObj.animate("img1", "cw");
+        img2RotateObj.animate("img2", "ccw");
+        img3RotateObj.animate("img3", "cw");
+
+    </script>
+</body>
+</html>

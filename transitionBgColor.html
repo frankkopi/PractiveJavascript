@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{background-color:lightgray}
+        button{margin-left:50px; margin-top:10px;}
+        div#box1{width:200px; height:100px; margin-top:10px; margin-left:50px; background-color: #9DCEEF;}
+        div#box2{width:200px; height:100px; margin-top:10px; margin-left:50px; background-color: lightsalmon;}
+        div#box3{overflow:hidden; width:200px; height:100px; margin-top:10px; margin-left:50px; background-color: lightgreen;}
+        div#box4{position:absolute; left:57px; width:200px; height:100px; margin-top:10px; background-color: lightgreen;}
+    </style>
+</head>
+<body>
+    <!-- Box1: transition (animation) on the background color of an element -->
+    <div>
+        <button class="button" onclick="changeBG('box1', '#F0F')">Magenta</button>
+        <button class="button" onclick="changeBG('box1', '#0C0')">Green</button>
+        <button class="button" onclick="changeBG('box1', '#9DCEEF')">Original</button>
+
+        <div id="box1">Content in box 1...</div>
+    </div>
+
+
+    <!-- Box2: transition (animation) on an elements opacity. Fade in and Fade out -->
+    <div style="margin-top:50px;">
+        <button class="button" onclick="fadeOut('box2')">Fade out</button>
+        <button class="button" onclick="fadeIn('box2')">Fade in</button>
+
+        <div id="box2">Content in box 2...</div>
+    </div>
+
+    <!-- Box3: transition (animation) on an elements height. Slide open and slide closed -->
+    <div style="margin-top:50px;">
+        <button class="button" onclick="slideClosed('box3')">Slide closed</button>
+        <button class="button" onclick="slideOpen('box3')">Slide open</button>
+
+        <div id="box3">Content in box 3...</div>
+    </div>
+
+
+    <!-- Box4: transition (animation) on an elements left property-->
+    <div style="margin-top:50px;">
+        <button class="button" onclick="slideIn('box4')">Slide in</button>
+        <button class="button" onclick="slideOut('box4')">Slide out</button>
+
+        <div id="box4">Content in box 4...</div>
+    </div>
+
+
+    <script src="lib/transitionBgColor.js"></script>
+</body>
+</html>

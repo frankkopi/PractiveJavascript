@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p{left:30px; font-size:30px; position:relative;}
+        div#radioButtonMenu{left:30px; position:relative;}
+        div#box{width:400px; height:350px; background:#d3d3d3; margin:auto; top:50px; position:relative;}
+        label{font-size:20px; vertical-align: middle;}
+        /*input[type="radio"]{float:left;}*/
+
+    </style>
+</head>
+<body>
+    <p><b>Rotate the box clockwise</b></p>
+    <div id="radioButtonMenu">
+        <div>
+            <label>
+                <input type="radio" id="rotation10" name="rotation" value="10"; onclick="turnBox('box', value)"/>
+                10 degrees
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="radio" id="rotation20" name="rotation" value="20" onclick="turnBox('box', value)"/>
+                20 degrees
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="radio" id="rotation30" name="rotation" value="30" onclick="turnBox('box', value)"/>
+                30 degrees
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="radio" id="rotation90" name="rotation" value="90" onclick="turnBox('box', value)"/>
+                90 degrees
+            </label>
+        </div>
+    </div>
+
+    <div id="box"><p><b>Content in the box...</b></p></div>
+
+    <script>
+        function turnBox(id, degrees){
+            var element = document.getElementById(id);
+            element.style.transition = "WebkitTransform 0.5s linear 0s";
+            element.style.WebkitTransform = "rotate(" + degrees + "deg)";
+            element.style.transition = "MozTransform 0.5s linear 0s";
+            element.style.MozTransform = "rotate(" + degrees + "deg)";
+            element.style.transition = "msTransform 0.5s linear 0s";
+            element.style.msTransform = "rotate(" + degrees + "deg)";
+            element.style.transition = "OTransform 0.5s linear 0s";
+            element.style.OTransform = "rotate(" + degrees + "deg)";
+            element.style.transition = "transform 0.5s linear 0s";
+            element.style.transform = "rotate(" + degrees + "deg)";
+        }
+    </script>
+</body>
+</html>

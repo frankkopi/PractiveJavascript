@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div#box{width:400px; height:102px; margin:auto; top:40px; position:relative;}
+        div#box2{width:400px; height:102px; margin:auto; top:90px; position:relative;}
+        div.class1{float:left; width:100px; height:100px; margin-left:20px; border:1px solid black; background:lightgoldenrodyellow;}
+        div.class2{float:left; width:100px; height:100px; margin-left:20px; border:1px solid black; background:lightgray;}
+    </style>
+
+</head>
+<body>
+
+    <div id="menu">
+        <div id="box">
+            <div class="class1" onclick="changeBg(this)"></div>
+            <div class="class1" onclick="changeBg(this)"></div>
+            <div class="class1" onclick="changeBg(this)"></div>
+        </div>
+        <div id="box2">
+            <div class="class1" onclick="changeBg(this)"></div>
+            <div class="class1" onclick="changeBg(this)"></div>
+            <div class="class1" onclick="changeBg(this)"></div>
+        </div>
+    </div>
+
+
+    <script>
+        function changeBg(element){
+            var grandKids = document.querySelectorAll("div.class1, div.class2");
+            for (var i = 0; i < grandKids.length; i++){
+                grandKids[i].className = 'class1';
+            }
+            element.className = 'class2';
+        }
+    </script>
+</body>
+</html>

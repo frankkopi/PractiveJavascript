@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div.box {width:100px;
+            height:50px;
+            background-color:#d3d3d3;
+            border:1px solid black;
+            border-radius:10px;
+            text-align:center;
+            margin:5px;
+        }
+    </style>
+
+</head>
+<body id="body">
+
+    <script>
+        window.addEventListener('load', showPersons, false);
+
+        // constructor function used to create new person objects.
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        var pers1 = new Person('frank', 44);
+        var pers2 = new Person('louise', 37);
+        var pers3 = new Person('fiona', 3);
+        var pers4 = new Person('william', 1);
+        var family = [pers1, pers2, pers3, pers4];
+
+        function showPersons(){
+            for (var i = 0; i < family.length; i++){
+                createDivElementWithPersonInfo(family[i]);
+            }
+        }
+
+        function createDivElementWithPersonInfo(person) {
+            var node = document.createElement('DIV');
+            var br = document.createElement('BR');
+            node.appendChild(br);
+            node.className = 'box';
+            var text = document.createTextNode(person.name + " " + person.age);
+            node.appendChild(text);
+            document.getElementById('body').appendChild(node);
+        }
+    </script>
+</body>
+</html>

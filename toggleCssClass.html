@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{background-color: lightgrey;}
+        p{margin-left: 10px; font-size: 35px;}
+        .class1{float:left; margin:10px; background:#09c; width:100px; height:100px; border: 1px solid black; curser:pointer;}
+        .class2{float:left; margin:10px; background:#FFF; width:100px; height:100px; border: 1px solid black; curser:pointer;}
+    </style>
+</head>
+<body >
+    <div>
+        <p>Ex 1: click the squares to change the color</p>
+
+        <!-- the argument 'this', is the div element -->
+        <div class="class1" onclick="toggleClass(this)"></div>
+        <div class="class1" onclick="toggleClass(this)"></div>
+        <div class="class1" onclick="toggleClass(this)"></div>
+        <div class="class1" onclick="toggleClass(this)"></div>
+    </div>
+    <div style="clear:both;"></div>
+
+    <div>
+        <p>Ex 2:</p>
+
+        <div id="menu1">
+            <div class="class2" onclick="toggleClass2(this)"></div>
+            <div class="class1" onclick="toggleClass2(this)"></div>
+            <div class="class1" onclick="toggleClass2(this)"></div>
+            <div class="class1" onclick="toggleClass2(this)"></div>
+        </div>
+    </div>
+
+    <script src="lib/toggleCssClass.js"></script>
+</body>
+</html>

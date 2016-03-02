@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div#quizzPane{width:600px; height:400px; background:#d3d3d3; margin:auto; top:100px; position:relative;}
+        div#test_status{width:500px; height:50px; padding:5px; border: 1px solid black; margin:auto; top:30px; position:relative;}
+        div#test{width:500px; height:250px; padding:5px; border: 1px solid black; margin:auto; top:50px; position:relative;}
+
+    </style>
+</head>
+<body>
+    <div id="quizzPane">
+        <div id="test_status"></div>
+        <div id="test"></div>
+    </div>
+
+    <script>
+        var pos = 0, currentQuestion, questions, choiceA, choiceB, choiceC, answer, totalScore = 0;
+        questions = [
+            ["what is 2 * 4 ?", 3, 5, 8, "C"],
+            ["what is 10 - 2 ?", 8, 9, 1, "A"],
+            ["what is 6 * 1 ?", 7, 6, 3, "B"],
+            ["what is 8 / 4 ?", 4, 8, 2, "C"]
+        ];
+
+        function renderQuestion(){
+            _('test_status').innerHTML = "Question " + (pos+1) + "of " + questions.length;
+            currentQuestion = questions[pos][0];
+            choiceA =  questions[pos][1];
+            choiceB =  questions[pos][2];
+            choiceC =  questions[pos][3];
+            correctAnswer = questions[pos][4];
+
+            _('test').innerHTML = questions[pos][0] + "<br/><br/>";
+            _('test').innerHTML += "<input type='radio' name='choice' value='A'/>" + choiceA + "<br/>";
+            _('test').innerHTML += "<input type='radio' name='choice' value='B'/>" + choiceB + "<br/>";
+            _('test').innerHTML += "<input type='radio' name='choice' value='C'/>" + choiceC + "<br/><br/>";
+            _('test').innerHTML += "<button onclick='checkAnswer()'>Submit</button>";
+        }
+
+        function _(id){
+            return document.getElementById(id);
+        }
+
+        function checkAnswer(){
+            var radios = document.getElementsByName('choice');
+
+            for (var i = 0; i < radios.length; i++){
+                if(radios[i].checked){
+                    answer = radios[i].value;
+                    break;
+                }
+            }
+            if (answer === correctAnswer){
+                totalScore++;
+            }
+            pos++;
+            if (pos == questions.length){
+                endOfTest();
+            }
+            else {
+                renderQuestion();
+            }
+        }
+
+        function endOfTest(){
+            _('test_status').innerHTML = "End of test";
+            _('test').innerHTML = "";
+            _('test').innerHTML = "You got " + totalScore + " right";
+            return false;
+        }
+        window.addEventListener("load", renderQuestion, false);
+    </script>
+</body>
+</html>

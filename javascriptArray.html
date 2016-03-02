@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+        var myArray = [];
+        myArray.push("Frank", "Louise");     // insert to the back of the array
+        myArray.unshift("mormor", "morfar"); // inserts to the front of the array
+
+        console.log("length is: " + myArray.length);
+        console.log(myArray);
+
+        // keep the 2 first elements, shorten the array and discard the rest of the elements
+        myArray.length = 2;
+        console.log("length is: " + myArray.length);
+        console.log(myArray);
+
+        console.log("index of morfar: " + myArray.indexOf('morfar')); // log out the index of the element with the value of 'morfar'
+
+        var array = [1,2,4,3,4,5,6,3,4];
+        console.log(array);
+        var index = array.indexOf(3, 4); // return index of value 3, but start the search after index 4
+        console.log("index of value 3, but search only after index 4: " + index);
+
+        var stuff = ["summer", "winter", "spring", "fall", "rain", "harvest"];
+        var newStuff = stuff.slice(2); // return new array from (including) index 2 and rest of the elements. The original array is not changed
+        console.log(newStuff);
+        console.log(stuff); // The original array is NOT changed
+
+        var newStuff2 = stuff.slice(2, 4); // return new array from (including) index 2 to (not including) index 4. The original array is not changed
+        console.log(newStuff2);
+
+        console.log("splice1");
+        var camping = ["fire", "tent", "grass", "blue sky", "water", "sunny"];
+        var newCamping = camping.splice(2); // return new array from (including) index 2. The original array WILL BE CHANGED
+        console.log(newCamping);
+        console.log(camping); // The original array WILL BE CHANGED
+
+        console.log("splice2");
+        var summer = ["fire", "tent", "grass", "sky", "water", "sunny"];
+        var newSummer = summer.splice(2, 2); // return new array from (including) index 2 and two indexes ahead. The original array WILL BE CHANGED
+        console.log(newSummer);
+        console.log(summer); // The original array WILL BE CHANGED
+
+        console.log("splice3");
+        var winter = ["skiing", "gloves", "snow", "beer", "cold", "hat"];
+        var newWinter = winter.splice(2, 2, "happy", "music", "candle", "trees");
+        console.log(newWinter);
+        console.log(winter);
+
+        // javsscript has 5 build in methods to use on arrays: forEach(), map(), filter(), some(), every()
+        // each method has the same structure. You have to pass a callback function and alternatively pass
+        // an object that will be used as the value of this.
+        //[1, 2, 3, 4].forEach(callBackFn, this);
+        // forEach() will run the function body for each element
+        console.log("the elements");
+        [1, 2, 3, 4].forEach(function(element, index, theArrayItself){
+            console.log(element);
+        });
+        console.log("the indexes");
+        [1, 2, 3, 4].forEach(function(element, index, theArrayItself){
+          console.log(index);
+        });
+        console.log("the array itself");
+        [1, 2, 3, 4].forEach(function(element, index, theArrayItself){
+            console.log(theArrayItself);
+        });
+
+        // map() will return a new array
+        console.log("the map method");
+        var mapArray = [1, 2, 3, 4].map(function(element, index, theArrayItself){
+            return(element * element);
+        });
+        console.log(mapArray);
+
+        // filter() will return a new array with values that satisfiy the filter condition
+        console.log("the map method");
+        var filterArray = [1, 2, 3, 4].filter(function(element, index, theArrayItself){
+            return element > 2;
+        });
+        console.log(filterArray);
+
+        // you can also pass build in functions, e.i. if you only want the truthy values
+        var truthyValues = ["Happy", 0, "New", "Year", false].filter(Boolean);
+        console.log(truthyValues);
+
+        // some() will return true or false according to the condition
+        var someResult = [1, 2, 3, 4].some(function(element, index, theArrayItself){
+            return element > 2;
+        });
+        console.log(someResult);
+        var someResult2 = [1, 2, 3, 4].some(function(element, index, theArrayItself){
+            return element > 10;
+        });
+        console.log(someResult2);
+
+
+        // every() will return true if every element meets the condition
+        var everyResult = [1, 2, 3, 4].every(function(element, index, theArrayItself){
+            return element > 2;
+        });
+        console.log(everyResult);
+        var everyResult2 = [1, 2, 3, 4].every(function(element, index, theArrayItself){
+            return element > 0;
+        });
+        console.log(everyResult2);
+
+        // check if collection is an array
+        Array.isArray({}); // passing an object returns false
+        Array.isArray([]); // passing an array returns true
+
+        // javascript also has a method called reduce that takes an extra parameter in the callback function
+        // this will return the sum of all the elements
+        var reduceResult = [1, 2, 3, 4, 5].reduce(function(sum, element, index, theArrayItself){
+           return sum + element;
+        });
+        console.log(reduceResult);
+        // this will return the sum of all the elements plus the additional parameter (100)
+        var reduceResult2 = [1, 2, 3, 4, 5].reduce(function(sum, element, index, theArrayItself){
+            return sum + element;
+        }, 100);
+        console.log(reduceResult2);
+        // this will return the length of the array, and not count the undefined elements in the array
+        var test = ["hello",,,,,,,,,"javascript"].reduce(function(length, element){
+            return length + 1;
+        }, 0);
+        console.log(test);
+
+        // the arguments passed to a function is LIKE an array, but it is NOT an array
+        function foo(){
+            console.log(arguments, 'length', arguments.length, '2nd', arguments[1]);
+        }
+        foo(1, 2, 3, 4, "hey", "you");
+
+        // if you want to convert any array-like object into an array
+        // you have to call the slice method in the Array.prototype
+        function boo(){
+            var args = Array.prototype.slice.call(arguments);
+            args.push(5);
+            console.log(args, 'length', args.length, '2nd', args[1]);
+        }
+        boo(1, 2, 3, 4, "hey", "you");
+    </script>
+</body>
+</html>

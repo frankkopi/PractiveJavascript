@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+        // constructor function used to create new person objects.
+        function Person(firstName, lastName, age) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.fullName = function(){
+                return this.firstName + " " + this.lastName;
+            };
+
+        }
+
+        var pers1 = new Person('frank', 'hansen', 44);
+        var pers2 = new Person('louise', 'madsen', 37);
+
+        console.log(pers1.fullName());
+        console.log(pers2.fullName());
+        console.log("The oldest person is : " + returnOldest(pers1, pers2));
+
+        // returns the largest age of two persons
+        function returnOldest(person1, person2){
+            if (person1.age === person2.age) {
+                return person1.age;
+            }
+            else {
+                return Math.max(person1.age, person2.age);
+            }
+        };
+    </script>
+</body>
+</html>

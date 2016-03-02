@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+        // constructor function is used to make new objects
+        function Animal(breed, name, color) {
+            this.breed = breed;
+            this.name = name;
+            this.color = color;
+            // description is a method in the object
+            this.description = function() {
+                console.log("I am a " + this.breed + ". My name is " + this.name + " and I am " + this.color);
+            };
+        }
+
+        // Create instances of Animal. You call the constructor by using the new keyword.
+        // The new keyword creates and empty object. The new object calls the Animal constructor function
+        // and passes the arguments which are set as properties on the new object.
+        var dog = new Animal('dog', 'fluffy', 'white', 3);
+        var cat = new Animal('cat', 'kitty', 'grey', 2);
+
+        dog.description();
+        cat.description();
+    </script>
+</body>
+</html>
