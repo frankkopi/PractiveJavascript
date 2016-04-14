@@ -1,0 +1,63 @@
+div#center {
+    width: 400px;
+    height: 230px;
+    margin: auto;
+    top: 200px;
+    position: relative;
+}
+
+div.defaultBg {
+    width: 100px;
+    height: 100px;
+    background-color: #d3d3d3;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+div#square1 { top: 0px; left: 0px; position: absolute }
+
+div#square2 { top: 0px; left: 115px; position: absolute  }
+
+div#square3 { top: 0px; left: 230px; position: absolute  }
+
+div#square4 { top: 120px; left: 0px; position: absolute }
+
+div#square5 { top: 120px; left: 115px; position: absolute }
+
+div#square6 { top: 120px; left: 230px; position: absolute }
+
+.background1 {
+    width: 100px;
+    height: 100px;
+    background-color: lightgreen;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.background2 {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.background3 {
+    width: 100px;
+    height: 100px;
+    background-color: lightcoral;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
